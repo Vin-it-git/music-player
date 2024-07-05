@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Song List</title>
+</head>
+<body>
+    <h1>Song List</h1>
+    <ul>
+        {% for song in songs %}
+            <li>
+                <strong>{{ song.title }}</strong> by {{ song.artist }}<br>
+                <em>{{ song.album }}</em> - {{ song.genre }}
+                <audio controls>
+                    <source src="{{ song.file.url }}" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'upload_song' %}">Upload a new song</a>
+</body>
+</html>
